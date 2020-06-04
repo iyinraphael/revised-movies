@@ -14,9 +14,22 @@ class MovieTableViewCell: UITableViewCell {
     
     @IBOutlet weak var movieTitleLabel: UILabel!
     @IBOutlet weak var filmWatchedButton: UIButton!
+    var movie: Movie? {
+        didSet {
+            updateView()
+        }
+    }
     
 
-    
+    //MARK: - Actions
     @IBAction func filmWatchedToggle(_ sender: Any) {
     }
+    
+    func updateView() {
+        guard let movie = movie, let title = movie.title else { return }
+        
+        movieTitleLabel.text = title
+        filmWatchedButton.setImage( movie.hasWatched ? UIImage(systemName: "film.filled") : UIImage(systemName: "film") , for: .normal)
+    }
+    
 }

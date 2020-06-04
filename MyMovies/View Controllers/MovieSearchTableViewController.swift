@@ -37,7 +37,7 @@ class MovieSearchTableViewController: UITableViewController {
                     guard let result = try? result.get() else { return }
                     
                     if result == true {
-                        let container = CoreDataStack.shared.container.newBackgroundContext()
+                        let container = CoreDataStack.shared.mainContext
                         
                         container.perform {
                             do {
