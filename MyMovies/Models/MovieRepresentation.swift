@@ -9,7 +9,7 @@
 import Foundation
 
 
-struct MovieRepresentation {
+struct MovieRepresentation: Codable {
     let title: String
     let identifier: String
     var hasWatched: Bool

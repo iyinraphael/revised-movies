@@ -12,12 +12,16 @@ enum NetworkError: Error {
     case otherError
     case noData
     case failedDecode
+    case failedEncode
 }
 
 class MovieController {
     
+    //MARK: - Properties
+    
     private let apiKey = "4cc920dab8b729a619647ccc4d191d5e"
     private let baseURL = URL(string: "https://api.themoviedb.org/3/search/movie")!
+    private let firebaseURL = URL(string: "https://mymovies-ee2ea.firebaseio.com/")!
     
     typealias CompletionHandler = (Result<Bool, NetworkError>) -> Void
     
@@ -60,5 +64,36 @@ class MovieController {
                 completion(.failure(.failedDecode))
             }
         }.resume()
+    }
+    
+    func sendMovieToServer(movie: Movie, completion: @escaping CompletionHandler = {_ in }) {
+    
+        guard let id = movie.identifier?.uuidString,  let movieRep = movie.movieRep else { return }
+
+        
+        let requestURL = firebaseURL
+                        .appendingPathComponent(id)
+                        .appendingPathExtension("json")
+        
+        var request = URLRequest(url: requestURL)
+        request.httpMethod = "PUT"
+        
+        
+        do {
+            let encodedData = try JSONEncoder().encode(movieRep)
+            request.httpBody = encodedData
+        } catch {
+            NSLog("Error encoding data to json: \(error)")
+            completion(.failure(.failedEncode))
+        }
+        
+        URLSession.shared.dataTask(with: request) { _, _, error in
+            if let error = error {
+                NSLog("Error occured trying to send data to server: \(error)")
+                completion(.failure(.otherError))
+            }
+            completion(.success(true))
+        }.resume()
+        
     }
 }

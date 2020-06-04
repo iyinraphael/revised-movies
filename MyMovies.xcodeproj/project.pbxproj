@@ -20,6 +20,7 @@
 		EB65B9E224894AE90006572A /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB65B9E124894AE90006572A /* CoreDataStack.swift */; };
 		EB65B9E624894DBB0006572A /* MovieRepresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB65B9E524894DBB0006572A /* MovieRepresentation.swift */; };
 		EB65B9E824894F2D0006572A /* Movie+Convinience.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB65B9E724894F2D0006572A /* Movie+Convinience.swift */; };
+		EB65B9EA248963660006572A /* MovieTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB65B9E9248963660006572A /* MovieTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		EB65B9E124894AE90006572A /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		EB65B9E524894DBB0006572A /* MovieRepresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieRepresentation.swift; sourceTree = "<group>"; };
 		EB65B9E724894F2D0006572A /* Movie+Convinience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Movie+Convinience.swift"; sourceTree = "<group>"; };
+		EB65B9E9248963660006572A /* MovieTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +107,7 @@
 			children = (
 				46E209F92126A89C00E7FF73 /* MovieSearchTableViewController.swift */,
 				46E209FB2126A8A100E7FF73 /* MyMoviesTableViewController.swift */,
+				EB65B9E9248963660006572A /* MovieTableViewCell.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -217,6 +220,7 @@
 				46E209E52126A63600E7FF73 /* AppDelegate.swift in Sources */,
 				46E20A022126A91800E7FF73 /* MovieDBMovie.swift in Sources */,
 				CE491A8F2477713300012147 /* SceneDelegate.swift in Sources */,
+				EB65B9EA248963660006572A /* MovieTableViewCell.swift in Sources */,
 				EB65B9E224894AE90006572A /* CoreDataStack.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
